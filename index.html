@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigonometric (Polar) Form of Complex Numbers - Section 8.7</title>
+<style>
+:root {
+  --primary: #4285F4;
+  --secondary: #FF3E96;
+  --accent: #e74c3c;
+  --dark: #34495e;
+  --light: #f0f3f8;
+  --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --button-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --heading-color: #5E72E4;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background: #f0f3f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--dark);
+  width: 100%;
+  max-width: 800px;
+}
+h1 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  color: var(--heading-color);
+  text-align: center;
+}
+.subheading {
+  font-size: 1.1rem;
+  color: var(--dark);
+  opacity: 0.8;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.modes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.mode-btn {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 50px;
+  background: white;
+  color: var(--dark);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--button-shadow);
+}
+
+.mode-btn.active {
+  background: var(--secondary);
+  color: white;
+}
+.mode-btn:nth-child(2).active {
+  background: var(--primary);
+  color: white;
+}
+.card-container {
+  position: relative;
+  perspective: 1500px;
+  height: 350px;
+  margin-bottom: 20px;
+}
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card-front {
+  background: white;
+  color: var(--dark);
+}
+.card-back {
+  background: var(--dark);
+  color: white;
+  transform: rotateY(180deg);
+  text-align: center;
+}
+.formula {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.explanation {
+  font-size: 1rem;
+  margin-top: 15px;
+  text-align: center;
+}
+.card-note {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--primary);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.card-hint {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+.control-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--button-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.control-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.progress-container {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  height: 8px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+.card-counter {
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-top: 10px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .card-container {
+    height: 400px;
+  }
+  .formula {
+    font-size: 1.5rem;
+  }
+  .modes {
+    flex-wrap: wrap;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Trigonometric (Polar) Form of Complex Numbers</h1>
+  <p class="subheading">Section 8.7 Interactive Flashcards</p>
+</header>
+<div class="container">
+  <div class="modes">
+    <button class="mode-btn active" id="formulas-btn">Formulas</button>
+    <button class="mode-btn" id="study-guide-btn">Study Guide</button>
+  </div>
+  
+  <!-- Flashcards Section -->
+  <div class="flashcards-container">
+    <div class="card-container">
+      <div class="card">
+        <div class="card-face card-front">
+          <div class="card-note">Complex Numbers</div>
+          <div class="formula">Rectangular to Trigonometric (Polar) Form</div>
+          <div class="card-hint">(Click to reveal the formula)</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="formula">z = x + yi = r(cos θ + i sin θ)</div>
+          <div class="explanation">
+            This formula converts a complex number from rectangular form (x + yi) to trigonometric (polar) form, using magnitude r and angle θ.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="control-btn" id="prev-btn">Previous</button>
+      <button class="control-btn" id="flip-btn">Flip Card</button>
+      <button class="control-btn" id="next-btn">Next</button>
+      <button class="control-btn" id="random-btn">Random</button>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" style="width: 10%;"></div>
+    </div>
+    <div class="card-counter">Card 1 of 10</div>
+  </div>
+</div>
+
+<script>
+// Formulas card data
+const formulasData = [
+  {
+    type: 'Complex Numbers',
+    front: 'Rectangular to Trigonometric (Polar) Form',
+    back: 'z = x + yi = r(cos θ + i sin θ)',
+    explanation: 'This formula converts a complex number from rectangular form (x + yi) to trigonometric (polar) form, using magnitude r and angle θ.'
+  },
+  {
+    type: 'Complex Numbers',
+    front: 'Finding the Modulus (Magnitude)',
+    back: 'r = √(x² + y²)',
+    explanation: 'The modulus or magnitude r represents the distance from the origin to the point (x,y) in the complex plane.'
+  },
+  {
+    type: 'Complex Numbers',
+    front: 'Finding the Argument (Angle)',
+    back: 'θ = tan⁻¹(y/x)',
+    explanation: 'The argument θ represents the angle made with the positive real axis. Remember to check the quadrant for the correct value.'
+  },
+  {
+    type: 'Complex Numbers',
+    front: 'Trigonometric (Polar) to Rectangular Form',
+    back: 'x = r cos θ, y = r sin θ',
+    explanation: 'These formulas convert from polar form back to rectangular form x + yi.'
+  },
+  {
+    type: 'Complex Numbers',
+    front: 'Multiplication in Polar Form',
+    back: 'z₁ · z₂ = r₁r₂[cos(θ₁ + θ₂) + i sin(θ₁ + θ₂)]',
+    explanation: 'To multiply complex numbers in polar form, multiply the moduli and add the arguments.'
+  },
+  {
+    type: 'Complex Numbers',
+    front: 'Division in Polar Form',
+    back: 'z₁/z₂ = (r₁/r₂)[cos(θ₁ - θ₂) + i sin(θ₁ - θ₂)]',
+    explanation: 'To divide complex numbers in polar form, divide the moduli and subtract the arguments.'
+  }
+];
+
+// Study Guide card data
+const studyGuideData = [
+  {
+    type: 'Study Guide',
+    front: 'Step 1: Understand Complex Plane Representation',
+    back: 'Practice plotting complex numbers on the real and imaginary axes',
+    explanation: 'Learn how vector representation relates to complex numbers in the complex plane.'
+  },
+  {
+    type: 'Study Guide',
+    front: 'Step 2: Master Conversions',
+    back: 'Convert between rectangular and polar forms using the formulas',
+    explanation: 'Recognize when to use radians versus degrees for angles in your calculations.'
+  },
+  {
+    type: 'Study Guide',
+    front: 'Step 3: Perform Operations in Polar Form',
+    back: 'Use angle sum and difference formulas for multiplication and division',
+    explanation: 'Compare results of operations in polar form with the same operations in rectangular form to verify understanding.'
+  },
+  {
+    type: 'Study Guide',
+    front: 'Step 4: Apply Complex Numbers to Fractals',
+    back: 'Iterative process: f(z) = z² + c',
+    explanation: 'A complex number z belongs to the Julia set if, when iterating f(z) = z² + c, the modulus |z| remains bounded (≤ 2).'
+  }
+];
+
+// Variables for tracking state
+let currentData = formulasData;
+let currentCardIndex = 0;
+let isFlipped = false;
+
+// DOM elements
+const card = document.querySelector('.card');
+const progressBar = document.querySelector('.progress-bar');
+const cardCounter = document.querySelector('.card-counter');
+
+// Buttons
+const formulasBtn = document.getElementById('formulas-btn');
+const studyGuideBtn = document.getElementById('study-guide-btn');
+const flipBtn = document.getElementById('flip-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const randomBtn = document.getElementById('random-btn');
+
+// Initialize
+updateCard();
+
+// Mode switching
+formulasBtn.onclick = function() {
+  formulasBtn.classList.add('active');
+  studyGuideBtn.classList.remove('active');
+  currentData = formulasData;
+  currentCardIndex = 0;
+  isFlipped = false;
+  card.classList.remove('flipped');
+  updateCard();
+};
+
+studyGuideBtn.onclick = function() {
+  studyGuideBtn.classList.add('active');
+  formulasBtn.classList.remove('active');
+  currentData = studyGuideData;
+  currentCardIndex = 0;
+  isFlipped = false;
+  card.classList.remove('flipped');
+  updateCard();
+};
+
+// Flashcard event listeners
+flipBtn.onclick = toggleFlip;
+card.onclick = toggleFlip;
+prevBtn.onclick = prevCard;
+nextBtn.onclick = nextCard;
+randomBtn.onclick = randomCard;
+
+// Flashcard functions
+function toggleFlip() {
+  isFlipped = !isFlipped;
+  card.classList.toggle('flipped');
+}
+
+function prevCard() {
+  isFlipped = false;
+  card.classList.remove('flipped');
+  currentCardIndex = (currentCardIndex - 1 + currentData.length) % currentData.length;
+  updateCard();
+}
+
+function nextCard() {
+  isFlipped = false;
+  card.classList.remove('flipped');
+  currentCardIndex = (currentCardIndex + 1) % currentData.length;
+  updateCard();
+}
+
+function randomCard() {
+  isFlipped = false;
+  card.classList.remove('flipped');
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * currentData.length);
+  } while (newIndex === currentCardIndex && currentData.length > 1);
+  currentCardIndex = newIndex;
+  updateCard();
+}
+
+function updateCard() {
+  const currentCard = currentData[currentCardIndex];
+  const cardNote = document.querySelector('.card-note');
+  const frontFormula = document.querySelector('.card-front .formula');
+  const backFormula = document.querySelector('.card-back .formula');
+  const explanation = document.querySelector('.explanation');
+  
+  cardNote.textContent = currentCard.type;
+  frontFormula.textContent = currentCard.front;
+  backFormula.textContent = currentCard.back;
+  explanation.textContent = currentCard.explanation;
+  
+  // Update progress
+  progressBar.style.width = `${((currentCardIndex + 1) / currentData.length) * 100}%`;
+  cardCounter.textContent = `Card ${currentCardIndex + 1} of ${currentData.length}`;
+}
+</script>
+</body>
+</html>
