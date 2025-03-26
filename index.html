@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trigonometric (Polar) Form of Complex Numbers - Section 8.7</title>
+<title>Polar Equations - Flashcards & Study Guide</title>
 <style>
 :root {
   --primary: #4285F4;
@@ -198,6 +198,40 @@ h1 {
   margin-top: 10px;
   text-align: center;
 }
+.study-guide-container {
+  display: none;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+}
+.study-guide-content {
+  color: var(--dark);
+  line-height: 1.6;
+}
+.study-guide-content h3 {
+  color: var(--heading-color);
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+.study-guide-content h4 {
+  color: var(--dark);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.study-guide-content ul, .study-guide-content ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.study-guide-content li {
+  margin-bottom: 5px;
+}
+.study-guide-content p {
+  margin-bottom: 10px;
+}
 @media (max-width: 768px) {
   .container {
     padding: 10px;
@@ -216,28 +250,27 @@ h1 {
 </head>
 <body>
 <header>
-  <h1>Trigonometric (Polar) Form of Complex Numbers</h1>
-  <p class="subheading">Section 8.7 Interactive Flashcards</p>
+  <h1>Polar Equations and Graphs</h1>
+  <p class="subheading">Section 8.7 Interactive Learning Materials</p>
 </header>
 <div class="container">
   <div class="modes">
-    <button class="mode-btn active" id="formulas-btn">Formulas</button>
+    <button class="mode-btn active" id="flashcard-btn">Flashcards</button>
     <button class="mode-btn" id="study-guide-btn">Study Guide</button>
   </div>
-  
   <!-- Flashcards Section -->
   <div class="flashcards-container">
     <div class="card-container">
       <div class="card">
         <div class="card-face card-front">
-          <div class="card-note">Complex Numbers</div>
-          <div class="formula">Rectangular to Trigonometric (Polar) Form</div>
+          <div class="card-note">Polar Coordinate System</div>
+          <div class="formula">How do you convert from polar to rectangular coordinates?</div>
           <div class="card-hint">(Click to reveal the formula)</div>
         </div>
         <div class="card-face card-back">
-          <div class="formula">z = x + yi = r(cos θ + i sin θ)</div>
+          <div class="formula">x = r cos(θ)<br>y = r sin(θ)</div>
           <div class="explanation">
-            This formula converts a complex number from rectangular form (x + yi) to trigonometric (polar) form, using magnitude r and angle θ.
+            These formulas allow you to convert a point from polar coordinates (r, θ) to rectangular coordinates (x, y).
           </div>
         </div>
       </div>
@@ -253,89 +286,196 @@ h1 {
     </div>
     <div class="card-counter">Card 1 of 10</div>
   </div>
+  
+  <!-- Study Guide Section -->
+  <div class="study-guide-container">
+    <div class="study-guide-content">
+      <h3>Section 8.7: Polar Equations and Graphs</h3>
+      
+      <h4>1. Polar Coordinate System</h4>
+      <ul>
+        <li>A point in the plane can be represented as <strong>(r, θ)</strong>, where:
+          <ul>
+            <li><strong>r</strong>: Distance from the origin (pole) to the point.</li>
+            <li><strong>θ</strong>: Angle measured from the positive x-axis (polar axis).</li>
+          </ul>
+        </li>
+        <li>Conversion between polar and rectangular coordinates:
+          <ul>
+            <li><strong>x = r cos(θ)</strong></li>
+            <li><strong>y = r sin(θ)</strong></li>
+            <li><strong>r² = x² + y²</strong></li>
+            <li><strong>tan(θ) = y / x</strong>, where x ≠ 0</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>2. Plotting Points in Polar Coordinates</h4>
+      <ul>
+        <li>If <strong>r > 0</strong>, the point lies on the terminal side of <strong>θ</strong>.</li>
+        <li>If <strong>r < 0</strong>, the point is located in the opposite direction along the ray.</li>
+      </ul>
+
+      <h4>3. Alternative Forms for Polar Coordinates</h4>
+      <ul>
+        <li>The same point can have multiple polar representations:
+          <ul>
+            <li>(r, θ) = (-r, θ + π)</li>
+            <li>(r, θ) = (r, θ + 2πk), where k is any integer.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>4. Conversion Between Polar and Rectangular Equations</h4>
+      <ul>
+        <li>To convert a rectangular equation <strong>x² + y² = a²</strong> into polar form:
+          <ul>
+            <li>Substitute <strong>x = r cos(θ)</strong> and <strong>y = r sin(θ)</strong></li>
+            <li><strong>r² = a²</strong> (which represents a circle)</li>
+          </ul>
+        </li>
+        <li>To convert a polar equation into rectangular form, use:
+          <ul>
+            <li><strong>r = f(θ) → x² + y² = f²(θ)</strong></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>5. Graphs of Polar Equations</h4>
+      <ul>
+        <li><strong>Circles:</strong> r = a (centered at the pole with radius a)</li>
+        <li><strong>Lines:</strong> θ = constant (a line through the pole at angle θ)</li>
+        <li><strong>Lemniscates:</strong> r² = a² cos(2θ) or r² = a² sin(2θ)</li>
+        <li><strong>Cardioids:</strong> r = a(1 ± cos(θ)) or r = a(1 ± sin(θ))</li>
+        <li><strong>Rose Curves:</strong> r = a cos(nθ) or r = a sin(nθ) (petal count depends on n)
+          <ul>
+            <li>If <strong>n</strong> is odd, number of petals = <strong>n</strong></li>
+            <li>If <strong>n</strong> is even, number of petals = <strong>2n</strong></li>
+          </ul>
+        </li>
+        <li><strong>Limaçons:</strong> r = a ± b cos(θ) or r = a ± b sin(θ)
+          <ul>
+            <li>If <strong>|a/b| < 1</strong>, inner loop exists.</li>
+            <li>If <strong>|a/b| = 1</strong>, it forms a cardioid.</li>
+            <li>If <strong>|a/b| > 1</strong>, no inner loop.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>6. Classification of Polar Equations</h4>
+      <ul>
+        <li><strong>Symmetry tests:</strong>
+          <ul>
+            <li>Symmetric with respect to the <strong>polar axis</strong> (x-axis): Replace <strong>θ</strong> with <strong>-θ</strong>.</li>
+            <li>Symmetric with respect to the <strong>pole (origin)</strong>: Replace <strong>r</strong> with <strong>-r</strong>.</li>
+            <li>Symmetric with respect to the <strong>vertical line θ = π/2</strong>: Replace <strong>θ</strong> with <strong>π - θ</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>7. Important Tips for Graphing Polar Equations</h4>
+      <ul>
+        <li>Choose <strong>several values of θ</strong>, compute <strong>r</strong>, and plot the corresponding points.</li>
+        <li>Use symmetry to simplify graphing.</li>
+        <li>Identify the key features: loops, petals, and intercepts.</li>
+      </ul>
+
+      <h4>8. Examples</h4>
+      <ol>
+        <li>Convert <strong>x² + y² = 9</strong> to polar form:
+          <ul>
+            <li><strong>r² = 9 → r = 3</strong> (Circle of radius 3 centered at the pole).</li>
+          </ul>
+        </li>
+        <li>Convert <strong>r = 2 cos(θ)</strong> to rectangular form:
+          <ul>
+            <li>Multiply both sides by <strong>r</strong>: <strong>r² = 2r cos(θ)</strong></li>
+            <li>Use <strong>r² = x² + y²</strong> and <strong>r cos(θ) = x</strong></li>
+            <li><strong>x² + y² = 2x → (x - 1)² + y² = 1</strong> (A circle centered at (1,0) with radius 1).</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>
-
 <script>
-// Formulas card data
-const formulasData = [
+// Card data
+const cardData = [
   {
-    type: 'Complex Numbers',
-    front: 'Rectangular to Trigonometric (Polar) Form',
-    back: 'z = x + yi = r(cos θ + i sin θ)',
-    explanation: 'This formula converts a complex number from rectangular form (x + yi) to trigonometric (polar) form, using magnitude r and angle θ.'
+    type: 'Polar Coordinate System',
+    front: 'How do you convert from polar to rectangular coordinates?',
+    back: 'x = r cos(θ)<br>y = r sin(θ)',
+    explanation: 'These formulas allow you to convert a point from polar coordinates (r, θ) to rectangular coordinates (x, y).'
   },
   {
-    type: 'Complex Numbers',
-    front: 'Finding the Modulus (Magnitude)',
-    back: 'r = √(x² + y²)',
-    explanation: 'The modulus or magnitude r represents the distance from the origin to the point (x,y) in the complex plane.'
+    type: 'Polar Coordinate System',
+    front: 'How do you convert from rectangular to polar coordinates?',
+    back: 'r² = x² + y²<br>tan(θ) = y / x, where x ≠ 0',
+    explanation: 'These formulas allow you to convert a point from rectangular coordinates (x, y) to polar coordinates (r, θ).'
   },
   {
-    type: 'Complex Numbers',
-    front: 'Finding the Argument (Angle)',
-    back: 'θ = tan⁻¹(y/x)',
-    explanation: 'The argument θ represents the angle made with the positive real axis. Remember to check the quadrant for the correct value.'
+    type: 'Alternative Forms',
+    front: 'What are the alternative ways to represent the same point in polar coordinates?',
+    back: '(r, θ) = (-r, θ + π)<br>(r, θ) = (r, θ + 2πk), where k is any integer',
+    explanation: 'These identities show how the same point can be represented using different polar coordinates.'
   },
   {
-    type: 'Complex Numbers',
-    front: 'Trigonometric (Polar) to Rectangular Form',
-    back: 'x = r cos θ, y = r sin θ',
-    explanation: 'These formulas convert from polar form back to rectangular form x + yi.'
+    type: 'Conversion',
+    front: 'How do you convert a rectangular equation x² + y² = a² into polar form?',
+    back: 'r² = a²',
+    explanation: 'Substitute x = r cos(θ) and y = r sin(θ) into the original equation to get this polar form, which represents a circle centered at the origin.'
   },
   {
-    type: 'Complex Numbers',
-    front: 'Multiplication in Polar Form',
-    back: 'z₁ · z₂ = r₁r₂[cos(θ₁ + θ₂) + i sin(θ₁ + θ₂)]',
-    explanation: 'To multiply complex numbers in polar form, multiply the moduli and add the arguments.'
+    type: 'Polar Graphs',
+    front: 'What is the equation of a circle in polar form?',
+    back: 'r = a (centered at pole)<br>r = 2a cos(θ) (centered at (a,0))<br>r = 2a sin(θ) (centered at (0,a))',
+    explanation: 'These equations represent circles in the polar coordinate system.'
   },
   {
-    type: 'Complex Numbers',
-    front: 'Division in Polar Form',
-    back: 'z₁/z₂ = (r₁/r₂)[cos(θ₁ - θ₂) + i sin(θ₁ - θ₂)]',
-    explanation: 'To divide complex numbers in polar form, divide the moduli and subtract the arguments.'
-  }
-];
-
-// Study Guide card data
-const studyGuideData = [
-  {
-    type: 'Study Guide',
-    front: 'Step 1: Understand Complex Plane Representation',
-    back: 'Practice plotting complex numbers on the real and imaginary axes',
-    explanation: 'Learn how vector representation relates to complex numbers in the complex plane.'
+    type: 'Polar Graphs',
+    front: 'What is the equation of a line in polar form?',
+    back: 'θ = constant (through pole)<br>r cos(θ - α) = p (not through pole)',
+    explanation: 'These equations represent lines in the polar coordinate system, where p is the perpendicular distance from the origin and α is the angle the perpendicular makes with the positive x-axis.'
   },
   {
-    type: 'Study Guide',
-    front: 'Step 2: Master Conversions',
-    back: 'Convert between rectangular and polar forms using the formulas',
-    explanation: 'Recognize when to use radians versus degrees for angles in your calculations.'
+    type: 'Polar Graphs',
+    front: 'What are the equations of Rose Curves?',
+    back: 'r = a cos(nθ) or r = a sin(nθ)',
+    explanation: 'Rose curves form petal patterns. If n is odd, there are n petals. If n is even, there are 2n petals.'
   },
   {
-    type: 'Study Guide',
-    front: 'Step 3: Perform Operations in Polar Form',
-    back: 'Use angle sum and difference formulas for multiplication and division',
-    explanation: 'Compare results of operations in polar form with the same operations in rectangular form to verify understanding.'
+    type: 'Polar Graphs',
+    front: 'What are the equations of Cardioids?',
+    back: 'r = a(1 ± cos(θ)) or r = a(1 ± sin(θ))',
+    explanation: 'Cardioids are heart-shaped curves that are special cases of limaçons where |a/b| = 1.'
   },
   {
-    type: 'Study Guide',
-    front: 'Step 4: Apply Complex Numbers to Fractals',
-    back: 'Iterative process: f(z) = z² + c',
-    explanation: 'A complex number z belongs to the Julia set if, when iterating f(z) = z² + c, the modulus |z| remains bounded (≤ 2).'
+    type: 'Polar Graphs',
+    front: 'What are the equations of Lemniscates?',
+    back: 'r² = a² cos(2θ) or r² = a² sin(2θ)',
+    explanation: 'Lemniscates are figure-eight shaped curves in the polar coordinate system.'
+  },
+  {
+    type: 'Symmetry Tests',
+    front: 'What are the tests for symmetry in polar equations?',
+    back: '• x-axis symmetry: Replace θ with -θ<br>• Origin symmetry: Replace r with -r<br>• y-axis symmetry: Replace θ with π-θ',
+    explanation: 'These tests help identify the symmetry properties of polar graphs, which can simplify the graphing process.'
   }
 ];
 
 // Variables for tracking state
-let currentData = formulasData;
 let currentCardIndex = 0;
 let isFlipped = false;
 
 // DOM elements
+const flashcardsContainer = document.querySelector('.flashcards-container');
+const studyGuideContainer = document.querySelector('.study-guide-container');
 const card = document.querySelector('.card');
 const progressBar = document.querySelector('.progress-bar');
 const cardCounter = document.querySelector('.card-counter');
 
 // Buttons
-const formulasBtn = document.getElementById('formulas-btn');
+const flashcardBtn = document.getElementById('flashcard-btn');
 const studyGuideBtn = document.getElementById('study-guide-btn');
 const flipBtn = document.getElementById('flip-btn');
 const prevBtn = document.getElementById('prev-btn');
@@ -346,24 +486,18 @@ const randomBtn = document.getElementById('random-btn');
 updateCard();
 
 // Mode switching
-formulasBtn.onclick = function() {
-  formulasBtn.classList.add('active');
+flashcardBtn.onclick = function() {
+  flashcardBtn.classList.add('active');
   studyGuideBtn.classList.remove('active');
-  currentData = formulasData;
-  currentCardIndex = 0;
-  isFlipped = false;
-  card.classList.remove('flipped');
-  updateCard();
+  flashcardsContainer.style.display = 'block';
+  studyGuideContainer.style.display = 'none';
 };
 
 studyGuideBtn.onclick = function() {
   studyGuideBtn.classList.add('active');
-  formulasBtn.classList.remove('active');
-  currentData = studyGuideData;
-  currentCardIndex = 0;
-  isFlipped = false;
-  card.classList.remove('flipped');
-  updateCard();
+  flashcardBtn.classList.remove('active');
+  flashcardsContainer.style.display = 'none';
+  studyGuideContainer.style.display = 'block';
 };
 
 // Flashcard event listeners
@@ -382,14 +516,14 @@ function toggleFlip() {
 function prevCard() {
   isFlipped = false;
   card.classList.remove('flipped');
-  currentCardIndex = (currentCardIndex - 1 + currentData.length) % currentData.length;
+  currentCardIndex = (currentCardIndex - 1 + cardData.length) % cardData.length;
   updateCard();
 }
 
 function nextCard() {
   isFlipped = false;
   card.classList.remove('flipped');
-  currentCardIndex = (currentCardIndex + 1) % currentData.length;
+  currentCardIndex = (currentCardIndex + 1) % cardData.length;
   updateCard();
 }
 
@@ -398,27 +532,27 @@ function randomCard() {
   card.classList.remove('flipped');
   let newIndex;
   do {
-    newIndex = Math.floor(Math.random() * currentData.length);
-  } while (newIndex === currentCardIndex && currentData.length > 1);
+    newIndex = Math.floor(Math.random() * cardData.length);
+  } while (newIndex === currentCardIndex && cardData.length > 1);
   currentCardIndex = newIndex;
   updateCard();
 }
 
 function updateCard() {
-  const currentCard = currentData[currentCardIndex];
+  const currentCard = cardData[currentCardIndex];
   const cardNote = document.querySelector('.card-note');
   const frontFormula = document.querySelector('.card-front .formula');
   const backFormula = document.querySelector('.card-back .formula');
   const explanation = document.querySelector('.explanation');
   
   cardNote.textContent = currentCard.type;
-  frontFormula.textContent = currentCard.front;
-  backFormula.textContent = currentCard.back;
-  explanation.textContent = currentCard.explanation;
+  frontFormula.innerHTML = currentCard.front;
+  backFormula.innerHTML = currentCard.back;
+  explanation.innerHTML = currentCard.explanation;
   
   // Update progress
-  progressBar.style.width = `${((currentCardIndex + 1) / currentData.length) * 100}%`;
-  cardCounter.textContent = `Card ${currentCardIndex + 1} of ${currentData.length}`;
+  progressBar.style.width = `${((currentCardIndex + 1) / cardData.length) * 100}%`;
+  cardCounter.textContent = `Card ${currentCardIndex + 1} of ${cardData.length}`;
 }
 </script>
 </body>
